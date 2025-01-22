@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5015518473789868818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7447899246244503043}
+  - component: {fileID: 8776613145870196260}
+  m_Layer: 0
+  m_Name: EnemyPutHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7447899246244503043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015518473789868818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8776613145870196260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015518473789868818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1af3a3ddbbf0f4abdd18213476fcd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainGrids: {fileID: 0}
+  soldierPrefab: {fileID: 6176366519324016330, guid: 7b7aea226d43cdf498ba1fcf7ca8e465, type: 3}
+  tankPrefab: {fileID: 8343740743400757320, guid: eaa30c68b74d00e499d07283e828e050, type: 3}
+  airstrikePrefab: {fileID: 7286011699226070897, guid: 779130425411dd04eb4c3a46739c2008, type: 3}
+  enemyArmy: {fileID: 0}
+  playerArmy: {fileID: 0}
+  chatScript: {fileID: 0}

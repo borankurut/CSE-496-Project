@@ -1,0 +1,49 @@
+\chapter{AI Implementation}
+
+The AI system in the game is responsible for controlling the enemy commander, dynamically interacting with the player, and managing the deployment of enemy units. The implementation leverages several key components, including GPT-based interaction, attack patterns, and automated unit deployment.
+
+\section{GPT-Driven Chat Facility}
+The game's interactive dialogue system is powered by the OpenAI GPT model  \cite{openaiDotNet}. The \texttt{GPT} manages conversations with the player through the following features:
+\begin{itemize}
+    \item \textbf{Dynamic Dialogue}: The AI commander generates contextual responses based on the state of the game, including battlefield updates and player interactions.
+    \item \textbf{Characteristics Management}: The AI adjusts its behavior, such as \texttt{anger} and \texttt{surrender likelihood}, based on the game state. These characteristics influence the tone of the AI's responses.
+    \item \textbf{Secret Prompt System}: The AI is periodically updated using secret prompts (e.g., \texttt{tatata}) to integrate battlefield information and adapt its strategies accordingly.
+    \item \textbf{Pre Configuration}: The AI is configured with a set of rules about the game and a sample conversation.
+\end{itemize}
+This system ensures the AI provides engaging and reactive dialogue, enhancing the player's experience.
+
+\section{GPT Informer}
+The \texttt{GPT Informer} is a critical component for managing and relaying information to the AI. Its primary functions include:
+\begin{itemize}
+    \item \textbf{Army Information Updates}: The \texttt{GPT Informer} consolidates and communicates the current state of both the enemy and player armies, including units at hand, deployed units, and overall status.
+    \item \textbf{Characteristics Updates}: The AI's characteristics, such as aggressiveness and surrender likelihood, are updated dynamically using this module.
+    \item \textbf{Battlefield Awareness}: By providing periodic updates, the \texttt{GPT Informer} ensures the AI remains aware of the game's current state and can make informed decisions.
+\end{itemize}
+
+\section{Attack Pattern Management}
+The \texttt{Attack Pattern} structure defines the AI's unit deployment behavior based on its aggressiveness. Key features include:
+\begin{itemize}
+    \item \textbf{Attack Timing}: Separate attack periods are defined for soldiers, tanks, and airstrikes. These are dynamically adjusted based on the AI's aggressiveness value.
+    \item \textbf{Aggressiveness Scaling}: The AI's \texttt{aggressiveness} is scaled using a divider to ensure balanced gameplay, with values clamped between 1 and 10.
+    \item \textbf{Adaptive Deployment}: As the AI's aggressiveness increases, its deployment periods shorten, resulting in faster and more frequent attacks.
+\end{itemize}
+This system enables the AI to adapt its behavior dynamically, creating a challenging and responsive opponent.
+
+\section{Enemy Unit Sending}
+The \texttt{Enemy Unit Sending} implementation includes:
+\begin{itemize}
+    \item \textbf{Automated Deployment}: Separate routines are defined for deploying soldiers, tanks, and airstrikes. These routines operate on timers based on the \texttt{Attack Pattern} of the enemy.
+    \item \textbf{Strategic Placement}: Units are placed at valid grid positions within the enemy territory. For airstrikes, the AI targets random positions within the player's army.
+    \item \textbf{Game State Integration}: The deployment routines adapt to the current state of the game. For example, airstrikes are only deployed when the player's army exceeds a certain threshold.
+    \item \textbf{Dynamic Aggressiveness}: The AI's deployment speed is influenced by its \texttt{aggressiveness}.
+\end{itemize}
+
+\section{Integration and Coordination}
+The AI system integrates all components to provide a cohesive experience:
+\begin{itemize}
+    \item \textbf{Information Flow}: The \texttt{GPT Informer} ensures the AI has up-to-date battlefield and characteristics information.
+    \item \textbf{Reactive Behavior}: The AI's dialogue and deployment strategies adapt dynamically based on inputs from the \texttt{Chat Facility} and \texttt{Enemy Unit Sending}.
+    \item \textbf{Scalability}: The modular design of components like \texttt{Attack Pattern} and \texttt{Enemy Unit Sending} allows for future enhancements or adjustments to AI behavior.
+\end{itemize}
+
+This AI implementation ensures that the enemy commander is narratively engaging character with interaction and decision-making capabilities.

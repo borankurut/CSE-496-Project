@@ -1,0 +1,39 @@
+\chapter{Evaluation}
+
+This project implemented a grid-based strategy war game with dynamic and interactive gameplay elements powered by an LLM. The integration of the LLM provided an enemy NPC to engage in contextual dialogue and make informed surrender decisions.
+
+\section{Summary of Achievements}
+The development of the game included several notable accomplishments:
+\begin{itemize}
+    \item A robust grid-based battlefield where both the player and the NPC can deploy units strategically.
+    \item An LLM-powered enemy commander capable of interacting dynamically with the player and adjusting its surrender likelihood and aggressiveness based on the game state.
+    \item The implementation of diverse unit types, including soldiers, tanks, and airstrikes, with distinct behaviors and battlefield roles.
+    \item Seamless integration of player mechanics, allowing unit deployment, selection, and battlefield navigation.
+    \item Real-time AI adjustments to game dynamics through the \texttt{Attack Pattern}, \texttt{GPT Informer}, and chat system, ensuring a responsive and adaptive opponent.
+    \item The game runs at an average of 115 fps on a system equipped with an RTX 3060 GPU and a Ryzen 5 processor.
+    \item The average response time for NPC interactions is approximately 2.5 seconds.
+\end{itemize}
+
+\section{Player Feedback}
+To evaluate the effectiveness of the game's AI and overall player experience, 10 participants were asked to play the game and provide feedback. The average responses to key evaluation questions were as follows:
+\begin{itemize}
+    \item \textbf{Accuracy of NPC surrender decisions}: The NPC's ability to make accurate surrender decisions was rated at \textbf{3.8} out of 5, indicating a reasonable alignment with player expectations but with room for improvement.
+    \item \textbf{Relevance of NPC responses}: The NPC's dialogue relevance was rated at \textbf{4.1} out of 5, reflecting a strong connection between its responses and the game context.
+\end{itemize}
+These results highlight the strengths of the AI in creating a believable and engaging opponent while also identifying areas for future enhancement.
+
+\section{Challenges and Limitations}
+The project faced several challenges and limitations:
+\begin{itemize}
+    \item The accuracy of surrender decisions, while reasonable, could be further refined by improving the underlying decision-making logic and incorporating additional battlefield parameters.
+    \item The use of OpenAI's API introduces a dependency on an external, priced platform. This not only increases the operational cost of the project but also adds latency to response due to communication with a remote server.
+\end{itemize}
+
+\section{Future Work}
+Building on the current implementation, several areas for future improvement have been identified:
+\begin{itemize}
+    \item Enhancing the decision-making process for NPC surrender likelihood by incorporating more sophisticated game state analysis.
+    \item Expanding the diversity of unit types and their behaviors to add strategic depth.
+    \item Refining the LLM's conversational logic to further improve dialogue relevance and player engagement.
+    \item Conducting larger-scale play-testing to gather more comprehensive feedback and fine-tune the AI's performance.
+\end{itemize}

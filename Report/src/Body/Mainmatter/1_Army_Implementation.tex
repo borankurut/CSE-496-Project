@@ -1,0 +1,65 @@
+\chapter{Army Implementation}
+
+The army system in the game is implemented to handle various unit types, manage their attributes, and provide dynamic behaviors during gameplay. The implementation is structured around the concepts of army information, unit attributes, and unit controllers. Each unit type is uniquely designed to fulfill specific battlefield roles, categorized as Soldiers, Tanks, and Airstrikes.
+
+\section{Army Information}
+The \texttt{Army Information} mechanism manages the overall state of the army. It tracks the following attributes:
+\begin{itemize}
+    \item \textbf{Initial Army}: The starting composition of soldiers, tanks, and airstrikes.
+    \item \textbf{At Hand}: Units that are ready for deployment but not yet on the battlefield.
+    \item \textbf{At Battlefield}: Units currently deployed and engaged in combat.
+    \item \textbf{Current Total}: The combined count of units across all states, calculated dynamically.
+\end{itemize}
+This structure enables efficient resource tracking and provides insights into the player's and enemy's available forces during the game.
+
+\section{Soldiers}
+Soldiers are the most basic units, designed for direct combat. Their implementation involves:
+\begin{itemize}
+    \item \textbf{Attributes}: Managed using the \texttt{Army Member} system, soldiers have health and damage values. These attributes define their combat effectiveness.
+    \item \textbf{Controller}: The \texttt{Soldier Controller} mechanism governs the behavior of soldier units, including:
+    \begin{itemize}
+        \item Movement towards the closest enemy.
+        \item Shooting animations and effects using particle systems.
+        \item Health reduction upon taking damage.
+        \item Death handling, which decreases the soldier count in the battlefield and cleans up the game object.
+    \end{itemize}
+\end{itemize}
+
+\section{Tanks}
+Tanks are armored units with higher durability and the ability to deal area-of-effect damage. Their implementation includes:
+\begin{itemize}
+    \item \textbf{Attributes}: Tanks possess higher health and damage values compared to soldiers, making them suitable for breaking enemy lines.
+    \item \textbf{Projectile System}: Manages the behavior of all projectiles.
+    \begin{itemize}
+        \item Area damage calculations based on a specified radius.
+        \item Particle effects for explosions and impacts.
+        \item Collision detection to determine affected units.
+    \end{itemize}
+    \item \textbf{Controller}: The \texttt{Tank Controller} mechanism manages tank-specific behaviors:
+    \begin{itemize}
+        \item Movement towards enemy targets.
+        \item Turret rotation for precise aiming.
+        \item Firing projectiles at enemy units.
+        \item Death handling, Reduces the tank count in the battlefield and triggers visual effects, such as smoke particles, upon destruction.
+    \end{itemize}
+\end{itemize}
+
+\section{Airstrikes}
+Airstrikes are powerful one-time-use projectiles that target specific locations. Their implementation focuses on high-impact, strategic gameplay:
+\begin{itemize}
+    \item \textbf{Attributes}: Airstrikes are defined by their damage and area-of-effect radius, as they do not have health or persistent presence on the battlefield.
+    \item \textbf{Behavior}: Airstrikes are deployed at a specific location and detonate on impact, dealing damage to all units within their effective radius.
+    \item \textbf{Controller}: The \texttt{projectile system} is used to handle airstrike mechanics, ensuring precise targeting and explosion effects.
+    \item \textbf{Particle Effects}: Explosion and impact visuals are enhanced using particle systems, providing clear feedback to the player.
+\end{itemize}
+
+\section{Army Member Controllers}
+Army controllers play a vital role in managing unit behavior and interactions. Each unit type has its own controller that handles state transitions, such as:
+\begin{itemize}
+    \item \textbf{Idle}: Units remain stationary when no enemy is in range.
+    \item \textbf{Moving}: Units navigate towards the closest enemy target.
+    \item \textbf{Shooting}: Units attack the enemy when within range, applying damage.
+    \item \textbf{Dead}: Units transition to a death state, triggering cleanup operations and reducing the battlefield count.
+\end{itemize}
+
+This hierarchical and modular implementation ensures that the game can manage diverse units effectively while maintaining scalable and dynamic gameplay.

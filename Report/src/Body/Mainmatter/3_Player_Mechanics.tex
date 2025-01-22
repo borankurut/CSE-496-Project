@@ -1,0 +1,47 @@
+\chapter{Player Mechanics}
+
+The player mechanics are designed to offer an interactive and engaging experience, allowing the player to deploy units strategically and navigate the battlefield efficiently. This chapter explains the implementation of player mechanics, focusing on unit placement, selection, and camera control.
+
+\section{Unit Placement}
+The player can deploy soldiers, tanks, and airstrikes by interacting with the battlefield. Key features include:
+\begin{itemize}
+    \item \textbf{Mouse Interaction}: The player clicks on valid positions on the battlefield to deploy units. A ray-cast detects if the click intersects a valid grid location.
+    \item \textbf{Unit Readiness}: Before deployment, the system checks whether the selected unit type is ready and if sufficient units are available in the player's army inventory.
+    \item \textbf{Deployment Logic}: The instantiation and positioning of units are handled based on the player's selection. 
+\end{itemize}
+This system ensures that the player's unit placement adheres to game rules and strategic limitations.
+
+\section{Unit Selection}
+The player can switch between unit types for deployment using keyboard inputs.
+\begin{itemize}
+    \item \textbf{Key Bindings}:
+    \begin{itemize}
+        \item \texttt{1}: Selects \texttt{Soldier}.
+        \item \texttt{2}: Selects \texttt{Tank}.
+        \item \texttt{3}: Selects \texttt{Airstrike}.
+    \end{itemize}
+    \item \textbf{Validation}: Selection impacts the deployment process, ensuring the player can only deploy the selected unit type if conditions are met.
+\end{itemize}
+
+\section{Camera Control}
+The player has the ability to navigate and observe the battlefield. Key functionalities include:
+\begin{itemize}
+    \item \textbf{Movement}: The player can move the camera using the keyboard:
+    \begin{itemize}
+        \item \texttt{W}, \texttt{A}, \texttt{S}, \texttt{D}: Move forward, left, backward, and right, respectively.
+        \item \texttt{E}: Move up.
+        \item \texttt{Q}: Move down.
+    \end{itemize}
+    \item \textbf{Rotation}: By holding the right mouse button, the player can rotate the camera using mouse movements.
+    \item \textbf{Bounds Enforcement}: The camera position is clamped within predefined bounds to prevent the player from leaving the battlefield area.
+    \item \textbf{Dynamic Grid Visibility}: The system toggles the visibility of player and enemy side indicators based on camera movement.
+\end{itemize}
+
+\section{Integration with Battlefield State}
+The player's mechanics are tightly integrated with the game state:
+\begin{itemize}
+    \item The \texttt{attack pattern} of the enemy NPC is synchronized with the player's deployment logic, maintaining balanced gameplay.
+    \item The system dynamically updates the readiness status and stacks for soldiers, tanks, and airstrikes, ensuring real-time feedback on unit availability.
+\end{itemize}
+
+This comprehensive implementation allows the player to strategize effectively, engage with the battlefield dynamically, and make informed decisions during gameplay.
